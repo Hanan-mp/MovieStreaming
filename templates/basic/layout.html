@@ -1,0 +1,291 @@
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmLane - Movie Streaming Website</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+
+    <!--- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fontawesome Link for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+ 
+      <!-- Add Font Awesome CDN link -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      
+     .nav-list{
+      overflow-y: auto; /* Make it scrollable */
+     }
+     #btn-signup{
+      position: relative;
+      left: -25px;
+     }
+     @media(max-width:768px){
+      #btn-signup{
+        position: relative;
+        left: 0;
+        
+       }
+       .nav-list .btn{
+        margin: 5px 5px;
+    }
+       
+       
+     }
+
+     @media(max-width:910px){
+      #btn-signup{
+        position: relative;
+        left: 0;
+        
+       }
+       .nav-list .btn{
+        margin: 5px 5px;
+    }
+       
+       
+     }
+    
+     
+     /* Style for the dropdown container */
+     .netflix-dropdown {
+         background-color: #141414; /* Dark background similar to Netflix */
+         color: white; /* White text */
+         border: 1px solid #333; /* Slight border around the dropdown */
+         border-radius: 4px; /* Rounded corners */
+         font-size: 16px;
+         padding: 10px;
+         width: 140px; /* Adjust width as needed */
+         appearance: none; /* Remove the default dropdown arrow */
+         -webkit-appearance: none; /* Remove the default arrow in Safari */
+         -moz-appearance: none; /* Remove the default arrow in Firefox */
+         cursor: pointer;
+         transition: all 0.3s ease;
+         position: relative;
+     }
+     
+     /* Remove the default browser arrow and add a custom one */
+     .netflix-dropdown::after {
+         content: '';
+         position: absolute;
+         right: 12px;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 0;
+         height: 0;
+         border-left: 5px solid transparent;
+         border-right: 5px solid transparent;
+         border-top: 5px solid white;
+     }
+     
+     /* Hover effect for the dropdown */
+     .netflix-dropdown:hover {
+         background-color: #333; /* Slightly lighter background when hovered */
+     }
+     
+     /* Focused state for the dropdown */
+     .netflix-dropdown:focus {
+         outline: none; /* Remove the default focus outline */
+         border: 1px solid  #141414; /* Red border like Netflix */
+         background-color: #333; /* Background color change on focus */
+     }
+     
+     /* Style for the dropdown options */
+     .netflix-dropdown option {
+         background-color: #141414; /* Same dark background */
+         color: white; /* White text */
+         border: none;
+         padding: 10px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+     }
+     
+     /* Hover effect for options */
+     .netflix-dropdown option:hover {
+         background-color: #333; /* Slightly lighter background on hover */
+     }
+     
+     /* Style for the selected option (to reflect the selected option visually) */
+     .netflix-dropdown:focus option {
+         background-color: #333;
+     }
+
+     /* Styling the select dropdown */
+.select {
+  width: 200px; /* Set the width of the dropdown */
+  padding: 10px 15px; /* Space around the text */
+  border: 2px solid #ccc; /* Light grey border */
+  border-radius: 25px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  font-family: Arial, sans-serif; /* Font style */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* Remove default arrow in Webkit browsers */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.select:hover {
+  border-color: #e2d703; /* Change border color on hover */
+}
+
+.select:focus {
+  outline: none; /* Remove outline when focused */
+  border-color: #e2d703; /* Change border color on focus */
+ 
+}
+
+/* Add a custom arrow icon */
+.select + .fas {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%); /* Center the icon vertically */
+  color: #e2d703; /* Change icon color */
+  pointer-events: none; /* Disable icon clicking */
+}
+
+/* Wrapping the select inside a container to allow positioning of the arrow */
+.select-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Pagination container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom:100px;
+
+}
+
+/* Step-links inside pagination */
+.pagination .step-links {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* General link styling */
+.pagination a {
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 4px;
+  background-color: #333; /* Dark hash background */
+  color: #f1c40f; /* Yellow color for the text */
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Styling for hovered links */
+.pagination a:hover {
+  background-color: #f1c40f; /* Yellow background on hover */
+  color: #333; /* Dark text when hovered */
+}
+
+/* Current page styling */
+.pagination .current {
+  font-weight: bold;
+  color: #f1c40f; /* Yellow color for the current page */
+  margin: 0 10px;
+}
+
+/* Styling for first and last page links */
+.pagination a:first-child,
+.pagination a:last-child {
+  border-radius: 20px;
+}
+
+/* Style for the arrows (previous/next) */
+.pagination a:focus,
+.pagination a:active {
+  outline: none;
+}
+
+/* Additional styles for spacing and alignment */
+.pagination .step-links {
+  display: flex;
+  align-items: center;
+}
+
+.pagination a {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect to enhance the button appearance */
+.pagination a:hover {
+  background-color: #f1c40f;
+  color: #333;
+  border: 2px solid #f1c40f;
+}
+
+    </style>
+  </head>
+  {% include 'navbar/navbar.html'%}
+  
+  {% block body %}
+
+  {% endblock body %}
+  
+  <!-- footer section start -->
+  <footer>
+    <div class="main">
+      <div class="footer-top">
+        <nav>
+          <div class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="">
+          </div>
+          <ul class="list">
+            <li><a href="">home</a></li>
+            <li><a href="">movie</a></li>
+            <li><a href="">tv show</a></li>
+            <li><a href="">web series</a></li>
+            <li><a href="">pricing</a></li>
+          </ul>
+        </nav>
+        <hr>
+        <div class="links">
+          <div class="text-links">
+            <a href="">faq</a>
+            <a href="">help center</a>
+            <a href="">terms of use</a>
+            <a href="">privacy</a>
+          </div>
+          <div class="social-links">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-pinterest"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&#169; 2022 <a href="">pawantech12</a>. All Rights Reserved</p>
+        </div>
+        <div class="img">
+          <img src="{% static 'images/footer-bottom-img.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/navbar.js' %}"></script>
